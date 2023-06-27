@@ -1,0 +1,66 @@
+ #include <Servo.h>
+Servo myservo;
+Servo myservo1;
+Int pos = 0;
+Int sensorValue = 0;
+Void setup() {
+Serial.begin(9600);
+Myservo.attach(9);
+Myservo1.attach(10);
+}
+Void loop() { sensorValue =
+analogRead(A0);
+Serial.println(sensorValue);
+If(sensorValue>800){
+Myservo.write(0);
+Myservo1.write(0);
+Delay(1000);
+}
+If(sensorValue<=800 && sensorValue>600)
+{
+For (pos = 0; pos <= 120; pos+=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+For (pos = 120; pos >= 0; pos-=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+Delay(2000);
+}
+ If(sensorValue<=600 && sensorValue>460)
+{
+For (pos = 0; pos <= 120; pos+=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+For (pos = 120; pos >= 0; pos-=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+Delay(1000);
+}
+If(sensorValue<460){
+For (pos = 0; pos <= 120; pos+=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+For (pos = 120; pos >= 0; pos-=1)
+{
+Myservo.write(pos);
+Myservo1.write(pos);
+Delay(3);
+}
+Delay(100);
+}
+}
